@@ -54,7 +54,7 @@ void QuickSort(T* a, const int left, const int right)
         do
         {
             do j--; while (a[j] > pivot);
-            do i++; while (a[i] <= pivot);
+            do i++; while (i < right && a[i] <= pivot);
             if (i < j) swap(a[i], a[j]);
         } while (i < j);
         swap(pivot, a[j]);
@@ -186,8 +186,9 @@ int main()
     cout << " z g e h x u q m b " << endl;
     cout << " The sorted characters list : ";
     vector<char> b = { 'z', 'g', 'e', 'h', 'x', 'u', 'q', 'm', 'b' };
-    QuickSort(b.data(), 1, b.size() - 1);
-    Print(b.data(), b.size());
+    QuickSort(b.data(), 0, b.size() - 1);
+    for (char value : b) cout << value << " ";
+    cout << endl;
 
     cout << endl;
 

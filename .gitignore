@@ -1,0 +1,19 @@
+# C/C++ build outputs
+*.o
+*.obj
+*.exe
+*.out
+*.a
+*.so
+*.dylib
+*.dll
+*.pdb
+
+# Local build and editor files
+build/
+bin/
+.vscode/
+.idea/
+*.log
+.DS_Store
+Thumbs.db
