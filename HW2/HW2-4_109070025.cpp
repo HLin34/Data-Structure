@@ -118,9 +118,12 @@ void Path(const int m, const int p)
     int mark[m+2][p+2], maze[m + 2][p + 2];
 
     ifstream file;
-    file.open("C:\\Users\\allue\\Desktop\\My_program\\Data_Structure\\maze.txt");
+    file.open("maze.txt");
 
-    file >> i >> j;
+    if (!file || !(file >> i >> j)) {
+        cerr << "Unable to read maze.txt header.\n";
+        return;
+    }
 
     //define mark
     for (int i = 0; i < m + 2; i++)
@@ -226,10 +229,13 @@ void Path(const int m, const int p)
 int main()
 {
     ifstream file;
-    file.open("C:\\Users\\allue\\Desktop\\My_program\\Data_Structure\\maze.txt");
+    file.open("maze.txt");
 
     int rows, cols;
-    file >> rows >> cols;
+    if (!file || !(file >> rows >> cols) || rows <= 0 || cols <= 0) {
+        cerr << "Unable to read maze.txt dimensions.\n";
+        return 1;
+    }
     file.close();
 
     cout << "The trace out action is below : " << endl << endl;

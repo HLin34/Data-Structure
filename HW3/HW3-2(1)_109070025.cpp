@@ -63,6 +63,7 @@ ostream& operator<< (ostream& os, const CircularList<T>& chain)
 template<class T>
 CircularList<T>::~CircularList()
 {
+    if (!first) return;
     Node* temp = first->link;
     while(temp != first)
     {
